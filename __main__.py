@@ -52,7 +52,7 @@ Identifica dinámicas como humillación, chantaje emocional, manipulación o con
 
 Para más información y testimonios, visita nuestra página oficial:  
 👉 [Alumbra.ai](http://alumbraia.com)
-"""
+""".format(dispatcher.bot.first_name)
 
 FEEDBACK_TEXT= """
 *Tu opinión nos importa*  
@@ -81,11 +81,12 @@ Estoy aquí para ayudarte a ver tus conversaciones desde otra perspectiva 💜
 
 # do not async
 def start_command(update: Update, context: CallbackContext) -> None:
-    ALUMBRA_IMG = "https://telegra.ph/file/7e2f7a8b2d52c61bf5ced.jpg" #CAMBIAR
-    update.message.reply_text(
-        START_TEXT,
-        parse_mode=ParseMode.MARKDOWN_V2
-    )
+    ALUMBRA_IMG = "https://telegra.ph/file/7e2f7a8b2d52c61bf5ced.jpg"  # CAMBIAR
+    user_name = update.effective_user.first_name or "amigo"
+    bot_name = context.bot.first_name
+
+    msg = START_TEXT.format(user_name, bot_name)
+    update.message.reply_text(msg, parse_mode="Markdown")
 
 def info_command(update: Update, context: CallbackContext) -> None:
     update.message.reply_text(
