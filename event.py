@@ -1,3 +1,6 @@
+#CREO, si estoy bien, estos no se están utilizando para nada, sin embargo dejemoslos por si acasoooo
+
+
 from telethon import events
 from HunterAlpha import telethn
 

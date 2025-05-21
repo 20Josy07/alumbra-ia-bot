@@ -1,3 +1,5 @@
+#Por si agregamos para que soporte imágenes y mensajes de voz
+
 import math
 import time
 

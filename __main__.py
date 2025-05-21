@@ -38,15 +38,16 @@ from telegram.ext.dispatcher import DispatcherHandlerStop, run_async
 from telegram.utils.helpers import escape_markdown
 
 
-PM_START_TEXT = """
+START_TEXT = """
 **Hola {}, Mi Nombre es {}!** 
-Te ayudo a detectar señales de abuso psicológico en tus conversaciones.
-Usa /help para ver lo que puedo hacer.
-
+¿Sientes que algo no está bien en tus conversaciones? 🤔
+Yo te ayudo a detectar señales de abuso psicológico como manipulación, control o conductas tóxicas de forma segura y confidencial.
+No estás solo, aquí tienes un espacio para entender mejor tu relación.
+Escribe /help para descubrir todo lo que puedo hacer por ti.
 """
 
 INFO_TEXT= """
-*Alumbra IA* es un proyecto dedicado a ayudarte a detectar señales de abuso psicológico. 💭
+*{}* es un proyecto dedicado a ayudarte a detectar señales de abuso psicológico. 💭
 Identifica dinámicas como humillación, chantaje emocional, manipulación o control.
 
 Para más información y testimonios, visita nuestra página oficial:  
@@ -81,6 +82,10 @@ Estoy aquí para ayudarte a ver tus conversaciones desde otra perspectiva 💜
 # do not async
 def start_command(update: Update, context: CallbackContext) -> None:
     ALUMBRA_IMG = "https://telegra.ph/file/7e2f7a8b2d52c61bf5ced.jpg" #CAMBIAR
+    update.message.reply_text(
+        START_TEXT,
+        parse_mode=ParseMode.MARKDOWN_V2
+    )
 
 def info_command(update: Update, context: CallbackContext) -> None:
     update.message.reply_text(
