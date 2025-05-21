@@ -1,0 +1,12 @@
+# Dev environment
+pip
+autopep8
+
+# App
+google-generativeai # Client library for the Gemini API
+Pillow # PIL image-loading library
+flask
+
+#nuevos, añadir 
+python-telegram-bot==20.7
+Telethon
